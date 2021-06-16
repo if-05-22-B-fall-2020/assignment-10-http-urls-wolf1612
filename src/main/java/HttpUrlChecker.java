@@ -26,11 +26,34 @@ import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class HttpUrlChecker {
-    public static Matcher getMatcher(httpString) {
-        Pattern pattern = Pattern.compile("^http://[a-zA-Z0-9+&@#/%?=~_|!:,;]*([.][a-zA-Z0-9+&@#/%?=~_|!:,;]*([-][a-zA-Z0-9+&@#/%?=~_|!:,;])*)*$");
+class HttpUrlChecker {
+    public static Matcher getMatcher(String httpString) {
+        ///BSP: "http://www.flll.jku.ac.at"
+        Pattern pattern = Pattern.compile("^(http|https)://[a-zA-Z0-9+&@#/%?=~_|!:,;]*([.][a-zA-Z0-9+&@#/%?=~_|!:,;]*[-]?[a-zA-Z0-9+&@#/%?=~_|!:,;]{2,256}[a-zA-Z0-9+&@#/%?=~_|!:,;]*)*([.][a-zA-Z0-9+&@#/%?=~_|!:,;]*)$");
         Matcher matcher = pattern.matcher(httpString);
+
+
+        ///NACH EINEM .find() ist bool auf false
+
+        /*
+        if(matcher.find()) {
+            System.out.println(matcher.group());
+        } else {
+            System.out.println("Pfui!!");
+        }
+
+        if(matcher.find()) {
+            System.out.println(matcher.group());
+        } else {
+            System.out.println("Pfui!!");
+        }*/
 
         return matcher;
     }
 }
+
+
+
+
+
+
