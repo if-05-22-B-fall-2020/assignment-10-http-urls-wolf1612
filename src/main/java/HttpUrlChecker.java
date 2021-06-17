@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 class HttpUrlChecker {
     public static Matcher getMatcher(String httpString) {
         ///BSP: "http://www.flll.jku.ac.at"
-        Pattern pattern = Pattern.compile("^(http|https)://[a-zA-Z0-9+&@#/%?=~_|!:,;]*([.][a-zA-Z0-9+&@#/%?=~_|!:,;]*[-]?[a-zA-Z0-9+&@#/%?=~_|!:,;]{2,256}[a-zA-Z0-9+&@#/%?=~_|!:,;]*)*([.][a-zA-Z0-9+&@#/%?=~_|!:,;]*)$");
+        Pattern pattern = Pattern.compile("^(http|https)://[0-9a-zA-Z]*[.][0-9a-zA-Z]*([.][0-9a-zA-Z]*)*([0-9a-zA-Z]{2,256}[-][0-9a-zA-Z]{2,256}[0-9a-zA-Z]*)*([.][0-9a-zA-Z]*)*$");
         Matcher matcher = pattern.matcher(httpString);
 
 
